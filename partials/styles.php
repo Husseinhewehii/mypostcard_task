@@ -1,3 +1,7 @@
+<?php
+    $backgrounds = ["red", "blue", "green"];
+?>
+
 <style>
     .red{
         background-color: #d1633f;
