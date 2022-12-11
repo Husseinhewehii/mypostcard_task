@@ -1,0 +1,1 @@
+<p id="item-price-<?php echo $item['id']?>">envelope addon: <span><?php echo $envelope['price'] ?></span></p>

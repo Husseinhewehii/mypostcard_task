@@ -42,9 +42,12 @@ $content = array_slice($outputArray['content'], 0, 25);
                 if($item['is_greeting_card']){
                   $card = $cardService->getGreetingCard($item['id']);
                   $envelope = $card['envelope'];
-                  echo ", envelope addon: ".$envelope['price'];
+   
+                  include './partials/envelopePrice.php';
+                  include './partials/dropdown.php';
                 }
               ?>
+
             </td>
             <td class="background <?php echo $backgrounds[array_rand($backgrounds)]?>"></td>
           </tr>
