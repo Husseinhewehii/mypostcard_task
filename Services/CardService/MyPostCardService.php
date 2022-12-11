@@ -29,6 +29,13 @@ class MyPostCardService implements CardService{
         $outputArray = json_decode($output, true);
         return $outputArray['products'][0]['product_options'];
     }
+
+    public function getPriceOption($storeID, $option){
+        $url = "https://www.mypostcard.com/mobile/product_prices.php?json=1&type=get_postcard_products&currencyiso=EUR&store_id=".$storeID;
+        $output = $this->apiService->get($url);
+        $outputArray = json_decode($output, true);
+        return $outputArray['products'][0]['product_options'][$option]['price'];
+    }
 }
 
 ?>

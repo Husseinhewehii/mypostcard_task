@@ -61,6 +61,43 @@ $content = array_slice($outputArray['content'], 0, 25);
 </body>
 </html>
 
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script >
+  function changePriceDisplay(item){
+      let id = item.id;
+      let name = item.name;
+      let data = {
+        storeID: id,
+        option : name
+      };
+      // console.log(x);
+
+      // e.preventDefault();
+      $.ajax({
+            type: "POST",
+            url: './Services/Ajax/updatePriceOption.php',
+            data: data,
+            success: function(response)
+            {
+                var jsonData = JSON.parse(response);
+  
+                // user is logged in successfully in the back-end
+                // let's redirect
+                if (jsonData.success == 1)
+                {
+                    let price = jsonData.price;
+                    $("#item-price-"+id).html(`${name} price: ${price}`);
+                }
+                else
+                {
+                    console.log(jsonData.message);
+                }
+          }
+      });
+
+    }
+</script>
 
 
 
