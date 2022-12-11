@@ -4,7 +4,7 @@
     </button>
     <div class="dropdown-menu">
         <?php foreach ($card['options'] as $option) { ?>
-            <a onclick="changePriceDisplay(this)" id="<?php echo $item['id']?>" name="<?php echo $option;?>"class="dropdown-item" href="#"><?php echo $option?></a>
+            <a onclick="changePriceDisplay(this)" id="<?php echo $item['id']?>" name="<?php echo $option;?>"class="dropdown-item" ><?php echo $option?></a>
         <?php } ?>
     </div>
 </div>
