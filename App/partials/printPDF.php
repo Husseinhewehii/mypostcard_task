@@ -1,5 +1,5 @@
 <div class="btn-group">
-    <a type="button" class="btn btn-success" href="./App/Services/PDF/print.php">
+    <a type="button" onclick="printPDF(this)" id="<?php echo $item['id']; ?>" class="btn btn-success">
     Print PDF
     </a>
 </div>

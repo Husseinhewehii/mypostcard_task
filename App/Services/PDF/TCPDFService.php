@@ -4,12 +4,12 @@ include './PDFService.php';
 require __DIR__.'/../../../vendor/autoload.php';
 
 class TCPDFService implements PDFService{
-    public function generatePDF()
+    public function generateImagePDF($imageHTML)
     {
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
-        $pdf->SetCreator("Wael Salah");
-        $pdf->SetAuthor('Wael Salah');
-        $pdf->SetTitle('Demonstrating pdf with php');
+        $pdf->SetCreator("Hussein El-Hewehii");
+        $pdf->SetAuthor('Hussein El-Hewehii');
+        $pdf->SetTitle('Print Images');
         $pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING, array(0, 6, 255), array(0, 64, 128));
         $pdf->setFooterData(array(0,64,0), array(0,64,128));
         $pdf->setHeaderFont(array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -28,8 +28,7 @@ class TCPDFService implements PDFService{
         $pdf->setFont('dejavusans', '', 14, '', true);
         $pdf->AddPage();
         $html = <<<EOD
-        <h1 style="text-decoration:none;background-color:#CC0000;color:black;">Demonstrating pdf with php</h1>
-        <p>In this simple example i show how to generate pdf documents using TCPDF</p>
+        $imageHTML
         EOD;
         $pdf->writeHTML($html);
         $pdf->Output('test.pdf', 'I');

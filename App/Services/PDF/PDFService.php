@@ -1,7 +1,7 @@
 <?php
 
 interface PDFService{
-    public function generatePDF();
+    public function generateImagePDF($imageHTML);
 }
 
 ?>

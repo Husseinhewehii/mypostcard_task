@@ -35,7 +35,7 @@ $content = array_slice($outputArray['content'], 0, 25);
         foreach ($content as $item) {
         ?>
           <tr>  
-            <td><img style="width: 200px; height:150px;" src="<?php echo $item['thumb_url'];?>" alt=""></td>
+            <td><img id="<?php echo $item['id'];?>" style="width: 200px; height:150px;" src="<?php echo $item['thumb_url'];?>" alt=""></td>
             <td><?php echo $item['title'];?></td>
             <td>
               <?php 
@@ -92,8 +92,25 @@ $content = array_slice($outputArray['content'], 0, 25);
                 }
           }
       });
+  }
 
-    }
+  function printPDF(item){
+
+    let imageItem = $('img#'+item.id);
+    let src = imageItem.attr('src');
+    let imageHTML = `<img style="width: 200px; height:150px;" src="${src}"/>`
+
+    let data = {
+      imageHTML: imageHTML
+      };
+
+    $.ajax({
+          type: "POST",
+          url: './App/Services/PDF/print.php',
+          data: data
+    });
+
+  }
 </script>
 
 
