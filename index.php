@@ -1,6 +1,7 @@
 
 <?php
 
+require "./vendor/autoload.php";
 include "./Services/CardService/MyPostCardService.php";
 include "./Services/Api/CurlService.php";
 
