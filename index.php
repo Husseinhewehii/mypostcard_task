@@ -1,9 +1,9 @@
 
 <?php
 
-require "./vendor/autoload.php";
-include "./Services/CardService/MyPostCardService.php";
-include "./Services/Api/CurlService.php";
+require __DIR__ . './vendor/autoload.php';
+include "./App/Services/CardService/MyPostCardService.php";
+include "./App/Services/Api/CurlService.php";
 
 $cardService = new MyPostCardService(new CurlService());
 $outputArray = $cardService->getBerlinProducts();
@@ -15,8 +15,8 @@ $content = array_slice($outputArray['content'], 0, 25);
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include("./partials/headers.php"); ?>
-<?php include("./partials/styles.php"); ?>
+<?php include("./App/partials/headers.php"); ?>
+<?php include("./App/partials/styles.php"); ?>
 
 <body>
 <div class="container">
@@ -44,8 +44,8 @@ $content = array_slice($outputArray['content'], 0, 25);
                   $card = $cardService->getGreetingCard($item['id']);
                   $envelope = $card['envelope'];
    
-                  include './partials/envelopePrice.php';
-                  include './partials/dropdown.php';
+                  include './App/partials/envelopePrice.php';
+                  include './App/partials/dropdown.php';
                 }
               ?>
 
@@ -75,7 +75,7 @@ $content = array_slice($outputArray['content'], 0, 25);
 
       $.ajax({
             type: "POST",
-            url: './Services/Ajax/updatePriceOption.php',
+            url: './App/Services/Ajax/updatePriceOption.php',
             data: data,
             success: function(response)
             {
