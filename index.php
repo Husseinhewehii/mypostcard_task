@@ -50,7 +50,7 @@ $content = array_slice($outputArray['content'], 0, 25);
               ?>
 
             </td>
-            <td class="background <?php echo $backgrounds[array_rand($backgrounds)]?>"></td>
+            <td class="background <?php echo $backgrounds[array_rand($backgrounds)]?>"><?php include './App/partials/printPDF.php'; ?></td>
           </tr>
         <?php
         }
