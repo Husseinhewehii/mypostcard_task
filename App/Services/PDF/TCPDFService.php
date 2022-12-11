@@ -19,6 +19,9 @@ class TCPDFService implements PDFService{
         $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
         $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+
+        
         // set auto page breaks
         $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
         // set image scale factor
@@ -29,7 +32,7 @@ class TCPDFService implements PDFService{
         $pdf->AddPage();
         
         $html = <<<EOD
-        <img style="width: 200px; height:150px;" src="$imageSrc" alt="">
+        <img src="$imageSrc" alt="">
         EOD;
         $pdf->writeHTML($html);
         return $pdf->Output('test.pdf', 'I');
