@@ -2,7 +2,7 @@
 <?php
 
 include "./Services/CardService/MyPostCardService.php";
-include "./Services/CurlService.php";
+include "./Services/Api/CurlService.php";
 
 $cardService = new MyPostCardService(new CurlService());
 $outputArray = $cardService->getBerlinProducts();
