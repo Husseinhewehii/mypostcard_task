@@ -4,7 +4,7 @@ include './PDFService.php';
 require __DIR__.'/../../../vendor/autoload.php';
 
 class TCPDFService implements PDFService{
-    public function generateImagePDF($imageHTML)
+    public function generateImagePDF($imageSrc)
     {
         $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->SetCreator("Hussein El-Hewehii");
@@ -27,11 +27,12 @@ class TCPDFService implements PDFService{
         // set default font subsetting mode
         $pdf->setFont('dejavusans', '', 14, '', true);
         $pdf->AddPage();
+        
         $html = <<<EOD
-        $imageHTML
+        <img style="width: 200px; height:150px;" src="$imageSrc" alt="">
         EOD;
         $pdf->writeHTML($html);
-        $pdf->Output('test.pdf', 'I');
+        return $pdf->Output('test.pdf', 'I');
     }
 }
 

@@ -1,9 +1,9 @@
 <?php
 
-if(isset($_POST['imageHTML'])){
+
+if(isset($_POST['imageSrc'])){
     include './TCPDFService.php';
     $pdfService = new TCPDFService();
-    $pdfService->generateImagePDF($_POST['imageHTML']);
+    $pdfService->generateImagePDF($_POST['imageSrc']);
 }
-
 ?>

@@ -35,7 +35,7 @@ $content = array_slice($outputArray['content'], 0, 25);
         foreach ($content as $item) {
         ?>
           <tr>  
-            <td><img id="<?php echo $item['id'];?>" style="width: 200px; height:150px;" src="<?php echo $item['thumb_url'];?>" alt=""></td>
+            <td><img style="width: 200px; height:150px;" src="<?php echo $item['thumb_url'];?>" alt=""></td>
             <td><?php echo $item['title'];?></td>
             <td>
               <?php 
@@ -99,16 +99,21 @@ $content = array_slice($outputArray['content'], 0, 25);
     let imageItem = $('img#'+item.id);
     let src = imageItem.attr('src');
     let imageHTML = `<img style="width: 200px; height:150px;" src="${src}"/>`
+    // let imageHTML = `<img style="width: 200px; height:150px;" src="https://appdsapi-6aa0.kxcdn.com/card_front_covers/thumb/1741_46.jpg"/>`
 
     let data = {
       imageHTML: imageHTML
       };
 
-    $.ajax({
-          type: "POST",
-          url: './App/Services/PDF/print.php',
-          data: data
-    });
+      $.ajax({
+            type: "POST",
+            url: './App/Services/PDF/print.php',
+            data: data,
+            success: function(response)
+            {
+                alert(response);
+          }
+      });
 
   }
 </script>
