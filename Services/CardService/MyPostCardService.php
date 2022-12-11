@@ -15,11 +15,19 @@ class MyPostCardService implements CardService{
         return json_decode($output, true);
     }
 
-    public function getGreetingCardWithEnvelope($storeID){
+    public function getGreetingCard($storeID){
         $url = "https://www.mypostcard.com/mobile/product_prices.php?json=1&type=get_postcard_products&currencyiso=EUR&store_id=".$storeID;
         $output = $this->apiService->get($url);
         $outputArray = json_decode($output, true);
-        return $outputArray['products'][0]['product_options']['Envelope'];
+        $productOptions = $outputArray['products'][0]['product_options'];
+        return ['options' => array_keys($productOptions), "envelope" => $productOptions['Envelope']];
+    }
+
+    public function getPriceOptions($storeID){
+        $url = "https://www.mypostcard.com/mobile/product_prices.php?json=1&type=get_postcard_products&currencyiso=EUR&store_id=".$storeID;
+        $output = $this->apiService->get($url);
+        $outputArray = json_decode($output, true);
+        return $outputArray['products'][0]['product_options'];
     }
 }
 

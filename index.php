@@ -40,7 +40,8 @@ $content = array_slice($outputArray['content'], 0, 25);
               <?php 
                 echo $item['price'];
                 if($item['is_greeting_card']){
-                  $envelope = $cardService->getGreetingCardWithEnvelope($item['id']);
+                  $card = $cardService->getGreetingCard($item['id']);
+                  $envelope = $card['envelope'];
                   echo ", envelope addon: ".$envelope['price'];
                 }
               ?>

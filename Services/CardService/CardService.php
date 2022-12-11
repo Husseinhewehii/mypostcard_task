@@ -2,5 +2,6 @@
 
 interface CardService{
     public function getBerlinProducts();
-    public function getGreetingCardWithEnvelope($storeID);
+    public function getGreetingCard($storeID);
+    public function getPriceOptions($storeID);
 }
