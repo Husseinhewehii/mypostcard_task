@@ -71,9 +71,7 @@ $content = array_slice($outputArray['content'], 0, 25);
         storeID: id,
         option : name
       };
-      // console.log(x);
 
-      // e.preventDefault();
       $.ajax({
             type: "POST",
             url: './Services/Ajax/updatePriceOption.php',
@@ -82,8 +80,6 @@ $content = array_slice($outputArray['content'], 0, 25);
             {
                 var jsonData = JSON.parse(response);
   
-                // user is logged in successfully in the back-end
-                // let's redirect
                 if (jsonData.success == 1)
                 {
                     let price = jsonData.price;
