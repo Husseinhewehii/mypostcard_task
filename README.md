@@ -8,8 +8,7 @@ Hussein El-Hewehii, PHP Full-Stack Developer with 3+ years experience:
 
 ## Installation Prerequisites
 
- ###:
-- **[PHP >= 8.1](https://www.php.net/downloads.php)**
+- **[PHP](https://www.php.net/downloads.php)**
 - **[Composer](https://getcomposer.org/)**
 
 
